@@ -1,0 +1,546 @@
+    1  ls
+    2  mkdir rijalganteng
+    3  ls
+    4  cd rijalganteng/
+    5  ls
+    6  nano rijalgantengpisan.txt
+    7  ;s
+    8  ls
+    9  vim text.txt
+   10  nano rijalgantengpisan.txt 
+   11  ls
+   12  cat rijalgantengpisan.txt 
+   13  nano tes.c
+   14  gcc tes.c -0 tes.x
+   15  gcc -v
+   16  sudo apt install gcc
+   17  gcc -v
+   18  sudo apt update
+   19  sudo apt upgrade
+   20  sudo apt install gcc
+   21  gcc -v
+   22  gcc tes.c -0 tes.x
+   23  gcc tes.c -o tes.x
+   24  cd kosfinder
+   25  cd rijalganteng
+   26  nano rijalgantengpisan
+   27  cd rijalganteng
+   28  nano rijalgantengpisan
+   29  gcc tes.c -o tes.x
+   30  nano tes
+   31  nano tes.c
+   32  gcc tes.c -o tes.x
+   33  nano tes.c
+   34  ls
+   35  clsGet-ChildItem -File | ForEach-Object { $folder = ($_.Name.Split('_')[0..1] -join "-"); if (Test-Path $folder) { Move-Item $_.FullName "$folder\" } }
+   36  cls
+   37  clr
+   38  cl
+   39  cls
+   40  help
+   41  cd
+   42  ls
+   43  rijalganteng
+   44  cd rijalganteng
+   45  ls
+   46  cd
+   47  ls
+   48  clear
+   49  ls
+   50  clear
+   51  python3
+   52  python3 -v
+   53  python3 --version
+   54  python3 -m pip install -U yt-dlp
+   55  sudo curl -L https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o /usr/local/bin/yt-dlp
+   56  sudo chmod a+rx /usr/local/bin/yt-dlp
+   57  ls
+   58  sudo apt update
+   59  sudo apt install ffmpeg
+   60  yt-dlp
+   61  yt-dlp --version
+   62  ffmpeg -version
+   63  yt-dlp -f "bv+ba/b" -P "/mnt/c/Downloads" "https://youtu.be/cqqLxHtHhxw?si=Dnsy_EXAWM_H_qca"
+   64  sudo apt update
+   65  sudo apt install nodejs -y
+   66  sudo yt-dlp -U
+   67  yt-dlp -f "bv+ba/b" -P "/mnt/c/Downloads" "https://youtu.be/cqqLxHtHhxw"
+   68  yt-dlp --js-runtimes nodejs -f "bv+ba/b" -P "/mnt/c/Downloads" "https://youtu.be/cqqLxHtHhxw"
+   69  node -v
+   70  yt-dlp --js-runtimes node -f "bv+ba/b" -P "/mnt/c/Downloads" "https://youtu.be/cqqLxHtHhxw"
+   71  curl -fsSL https://deno.land/install.sh | sh
+   72  sudo apt install unzip -y
+   73  curl -fsSL https://deno.land/install.sh | sh
+   74  exit
+   75  cd
+   76  sudo mv ~/.deno/bin/deno /usr/local/bin/
+   77  yt-dlp -f "bv+ba/b" -P "/mnt/c/Downloads" "https://youtu.be/cqqLxHtHhxw"
+   78  ls
+   79  whoami
+   80  exit
+   81  docker
+   82  docker iv
+   83  docker -v
+   84  docker image
+   85  docker image ls
+   86  cd
+   87  docker image ls
+   88  docker image pull --help
+   89  cls
+   90  clr
+   91  clear
+   92  git clone https://github.com/HKUDS/Vibe-Trading
+   93  cd Vibe-Trading
+   94  docker compose pull
+   95  docker compose up -d
+   96  ls
+   97  ls -l
+   98  cd agent
+   99  ls
+  100  cd ..
+  101  code .
+  102  smdr
+  103  -h
+  104  help
+  105  path
+  106  pat
+  107  cd
+  108  folder
+  109  ~
+  110  cd vibe-trading
+  111  ls
+  112  cd Vibe-Trading
+  113  ~
+  114  cd agent
+  115  ls
+  116  exit
+  117  cd
+  118  cd Vibe-Trading
+  119  cd agent
+  120  ls
+  121  nano .env
+  122  cd ~/Vibe-Trading
+  123  docker compose restart
+  124  docker compose down
+  125  cdm
+  126  cmd
+  127  cd
+  128  ssh
+  129  ssh root@103.92.214.190
+  130  exit
+  131  whoami
+  132  neofetch
+  133  ssh root@103.92.214.190
+  134  ls
+  135  ssh root@103.92.214.190
+  136  ssh zal@103.92.214.190
+  137  colab ssh
+  138  ssh arisu
+  139  ssh
+  140  ls
+  141  cd
+  142  ls
+  143  cd vibe-trading
+  144  cd Vibe-Trading/
+  145  ls
+  146  cd
+  147  docker ps
+  148  cd Vibe-Trading/
+  149  npm run dev
+  150  cd Vibe-Trading/agent
+  151  cd Vibe-Trading/agent/
+  152  cd
+  153  docker images
+  154  cd
+  155  ssh -L 9119:localhost:9119
+  156  ssh -L 9119:localhost:9119 zal
+  157  ssh -L 9119:localhost:9119 root
+  158  ssh -L 9119:localhost:9119 
+  159  ssh zal -L 9119:localhost:9119 
+  160  ssh -L 9119:localhost:9119 zal
+  161  ssh
+  162  ssh zal
+  163  nano ~/config.json
+  164  ssh zal
+  165  ssh
+  166  ssh -L 9119:localhost:9119 zal
+  167  cat ~/.ssh/config
+  168  ssh -G zal
+  169  root
+  170  sudo ssh -L 9119:localhost:9119 zal
+  171  sudo cat ~/.ssh/config
+  172  sudo ssh -L 9119:localhost:9119 zal
+  173  clear
+  174  cat ~/.ssh/config
+  175  exit
+  176  cd
+  177  cd comics-sg/week01/assignment-01/
+  178  ls -a | wc -l
+  179  cd
+  180  ls -a | wc -l
+  181  ls -A | wc -l
+  182  ls -la
+  183  find ~ -maxdepth 1 -type f | wc -l
+  184  find ~ -maxdepth 1 -type d | wc -l
+  185  ls -A | wc -l
+  186  ls -A
+  187  find ~ -maxdepth 1 -type d
+  188  find ~ -maxdepth 1 -type f
+  189  rm -r rijalganteng/
+  190  ls -A
+  191  find ~ -maxdepth 1 -type d
+  192  find ~ -maxdepth 1 -type f | wc -l
+  193  find ~ -maxdepth 1 -type d | wc -l
+  194  find ~ -maxdepth 1 | wc -l
+  195  ls -A | wc -l
+  196  clear
+  197  sudo find ~ -maxdepth 1 -type f | wc -l
+  198  sudo find ~ -maxdepth 1 -type d | wc -l
+  199  sudo ls -A | wc -l
+  200  sudo find ~ -maxdepth 1 | wc -l
+  201  find ~ -maxdepth 1 -type f | wc -l
+  202  clear
+  203  sudo find ~ -maxdepth 1 -type d | wc -l
+  204  sudo find ~ -maxdepth 1 -type f | wc -l
+  205  sudo find ~ -maxdepth 1 | wc -l
+  206  sudo ls -A | wc -l
+  207  ls -ld ~/.aws ~/.azure
+  208  ls -l ~/.azure ~/.aws
+  209  which ls
+  210  which python3
+  211  type python3
+  212  type ls
+  213  type cd
+  214  whereis ls
+  215  clear
+  216  which ls
+  217  which python3
+  218  type ls
+  219  type python3
+  220  type cd
+  221  whereis ls
+  222  ls -l /usr/bin/ls
+  223  ls -l /usr/bin/python3
+  224  echo $path
+  225  echo /usr/bin/ls
+  226  cd comics-sg/week01/assignment-01/
+  227  pwd
+  228  clear
+  229  pwd
+  230  cd
+  231  pwd
+  232  cd -
+  233  pwd
+  234  echo $OLDPWD
+  235  sudo apt update && sudo apt install -y man-db manpages manpages-dev
+  236  man
+  237  man man
+  238  man mkdir
+  239  man ls
+  240  ls -lh
+  241  ls -l
+  242  man mkdir
+  243  ls
+  244  rm -r -p
+  245  rm -r '-p'
+  246  rm -r "-p"
+  247  rm -p
+  248  rm ./-p
+  249  ls
+  250  tree'
+  251  sd
+  252  tree
+  253  clear
+  254  cd
+  255  cd -
+  256  mkdir cluster-project
+  257  ls
+  258  rm -r cluster-project/
+  259  tree
+  260  ls
+  261  mkdir -p cluster-project
+  262  ls
+  263  tree
+  264  rm -r cluster-project/
+  265  ls
+  266  cd
+  267  clear
+  268  mkdir -p cluster-project/{data/raw, data/processed, scripts, results, logs} && touch cluster-project/README.md cluster-project/data/raw/sample_{01..03}.csv cluster-project/scripts/run.sh
+  269  rm -r cluster-project/
+  270  ls
+  271  rm -r data,logs},results,scrpits,
+  272  rm -r data logs},results,scrpits,
+  273  ls
+  274  rm -r logs} results, scrpits,
+  275  ls
+  276  rm -r scrpits,
+  277  rm -r scripts,
+  278  ls
+  279  clear
+  280  mkdir -p cluster-project/{data/raw,data/processed,scripts, results,logs} && touch cluster-project/README.md cluster-project/data/raw/sample_{01..03}.csv cluster-project/script/run.sh
+  281  ls
+  282  rm -r cluster-project/ results,logs}/
+  283  ls
+  284  mkdir -p cluster-project/{data/raw,data/processed,scripts,results,logs}
+  285  ls
+  286  mkdir -p cluster-project/{data/raw,data/processed,scripts,results,logs} && touch cluster-project/README.md cluster-project/data/raw/sample_{01..03}.csv cluster-project/script/run.sh
+  287  ls
+  288  mkdir -p cluster-project/{data/raw,data/processed,scripts,results,logs} && touch cluster-project/README.md cluster-project/data/raw/sample_{01..03}.csv cluster-project/script/run.sh
+  289  mkdir -p cluster-project/{data/raw,data/processed,scripts,results,logs} && touch cluster-project/README.md cluster-project/data/raw/sample_{01..03}.csv cluster-project/scripts/run.sh
+  290  ls
+  291  rm -r cluster-project/
+  292  mkdir -p cluster-project/{data/raw,data/processed,scripts,results,logs};touch cluster-project/README.md cluster-project/data/raw/sample_{01..03}.csv cluster-project/scripts/run.sh
+  293  ls
+  294  cd cluster-project/
+  295  tree
+  296  mkdir -p cluster-project/{data/raw,data/processed,scripts,results,logs}&&touch cluster-project/README.md cluster-project/data/raw/sample_{01..03}.csv cluster-project/scripts/run.sh
+  297  rm -r cluster-project/
+  298  cd
+  299  rm -r cluster-project/
+  300  ls
+  301  mkdir -p cluster-project/{data/raw,data/processed,scripts,results,logs}&&touch cluster-project/README.md cluster-project/data/raw/sample_{01..03}.csv cluster-project/scripts/run.sh
+  302  cd cluster-project/
+  303  tree
+  304  cd
+  305  cd cluster-project/
+  306  echo "Cluster project by Rizal Khairul Hashfi" > README.md 
+  307  cat README.md 
+  308  nano README.md 
+  309  cd data/
+  310  cd ..
+  311  ls
+  312  echo "" > README.md 
+  313  cat README.md 
+  314  cd
+  315  echo "Cluster project by Rizal Khairul Hashfi" > ~/cluster-project/README.md
+  316  cat ~/cluster-project/README.md 
+  317  tree -L 2
+  318  cd comics-sg/
+  319  cd week01/
+  320  ls
+  321  cd assignment-01/
+  322  cd
+  323  rmdir cluster-project/
+  324  rm -r cluster-project/
+  325  tree -L 2
+  326  ls
+  327  cd -
+  328  cd 
+  329  mkdir -p cluster-project/{data/raw,data/processed,scripts,results,logs} && touch cluster-project/README.md cluster-project/data/raw/sample_{01..03}.csv cluster-project/scripts/run.sh
+  330  ls
+  331  echo "Cluster project by Rizal Khairul Hashfi" > ~/cluster-project/README.md
+  332  ls
+  333  cat cluster-project/README.md 
+  334  tree -L 2
+  335  tree -L 3
+  336  cd cluster-project/
+  337  tree
+  338  cp ~/cluster-project/data/raw/sample_01.csv ~/cluster-project/data/processed/sample_01_clean.csv
+  339  tree
+  340  mv ~/cluster-project/data/raw/sample_03.csv ~/cluster-project/results/
+  341  tree
+  342  rmdir ~/cluster-project/logs
+  343  tree
+  344  cd ~/cluster-project && (tree 2>/dev/null || ls -R) > ~/comics-sg/week01/assignment-01/structure.txt
+  345  tree
+  346  cd
+  347  cd -
+  348  cat ../comics-sg/week01/assignment-01/structure.txt 
+  349  clear
+  350  cd
+  351  pwd
+  352  { whoami; hostname; uname -a; cat /etc/os-release; echo "HOME=$HOME"; echo "SHELL=$SHELL"; } > sysinfo.txt
+  353  ls
+  354  rm -r sysinfo.txt 
+  355  ls
+  356  mkdir comics
+  357  ls
+  358  cd comics
+  359  cd Comics-Study-Group-2026
+  360  mkdir Comics-Study-Group-2026
+  361  ls
+  362  cd Comics-Study-Group-2026/
+  363  mkdir assignment-01/
+  364  ls
+  365  cd assignment-01/
+  366  omp
+  367  htop
+  368  code .
+  369  ls -l -a
+  370  cd
+  371  ls -l -a
+  372  cd comics/Comics-Study-Group-2026/assignment-01/
+  373  cls
+  374  clear
+  375  tree
+  376  sudo apt install tree
+  377  cd
+  378  sudo apt install tree
+  379  sudo dpkg --configure -a
+  380  sudo apt install tree
+  381  tree
+  382  apt --fix-broken install
+  383  sudo apt --fix-broken install
+  384  tree
+  385  sudo apt install tree
+  386  sudo upgrade 
+  387  sudo update
+  388  sudo apt update
+  389  sudo apt upgrade
+  390  clear
+  391  tree
+  392  clear
+  393  cd comics/Comics-Study-Group-2026/assignment-01/
+  394  tree
+  395  cd ..
+  396  tree
+  397  cd ..
+  398  tree
+  399  tree -L 2
+  400  cd
+  401  tree -L 2
+  402  cd comics/Comics-Study-Group-2026/assignment-01/
+  403  ls -l script.sh
+  404  man ls
+  405  man tree
+  406  clear
+  407  whoami
+  408  hostname
+  409  pwd
+  410  uname -a
+  411  cat /etc/os-release 
+  412  man mkdir
+  413  cd
+  414  ls
+  415  rm -r comics/
+  416  ls
+  417  mkdir -p ~/comics-sg/week01
+  418  ls
+  419  cd ~/comics-sg/week01
+  420  mkdir -p ~/comics-sg/week01/{data,scripts,results}
+  421  ls
+  422  cd data
+  423  ls
+  424  tree
+  425  cd ..
+  426  tree
+  427  cd ..
+  428  tree
+  429  ls -R
+  430  echo "Hello Cluster" > data/hello.txt
+  431  cd week01/
+  432  ls'
+  433  ls
+  434  echo "Hello Cluster" > data/hello.txt
+  435  ls
+  436  tree
+  437  cat data/hello.txt 
+  438  cp data/hello.txt results/hello_copy.txt
+  439  tree
+  440  mv results/hello_copy.txt results/greeting.txt
+  441  ls -l results/
+  442  cd scripts/
+  443  cat ../data/hello.txt 
+  444  cat ~/comics-sg/week01/data/hello.txt 
+  445  echo 'echo "Script berjalan dari $(pwd)"' > run.sh
+  446  tree
+  447  cat run.sh 
+  448  ls -l run.sh 
+  449  ./run.sh
+  450  chmod u+x run.sh
+  451  ./run.sh
+  452  man mkdir
+  453  cp --help | head -n 20
+  454  cd ~/comics-sg/week01/
+  455  tree
+  456  rm -i results/greeting.txt 
+  457  tree
+  458  rm -i results/greeting.txt 
+  459  tree
+  460  mkdir assignment-01
+  461  tree
+  462  cd assignment-01/
+  463  { whoami; hostname; uname -a; cat /etc/os-release; echo "HOME=$HOME"; echo "SHELL=$SHELL"; } > sysinfo.txt
+  464  tree
+  465  cat sysinfo.txt 
+  466  touch answer.md
+  467  vim answer.md 
+  468  cat answer.md 
+  469  rm -r answer.md 
+  470  ls
+  471  clear
+  472  { whoami; hostname; uname -a; cat /etc/os-release; echo "HOME=$HOME"; echo "SHELL=$SHELL"; } > sysinfo.txt
+  473  ls
+  474  cat sysinfo.txt 
+  475  pwd
+  476  nano answer.md
+  477  CLEAR
+  478  clear
+  479  cat answer.md 
+  480  code .
+  481  nano answer.md
+  482  code .
+  483  cat answer.md 
+  484  nano answer.md
+  485  cat answer.md 
+  486  nano answer.md
+  487  code .
+  488  nano answer.md
+  489  clear
+  490  cat /etc/hostname 
+  491  hostname
+  492  cat /etc/hosts
+  493  nano answer.md 
+  494  clear
+  495  ls -l /
+  496  ls -l /bin
+  497  ls -l /etc
+  498  nano answer.md 
+  499  cd
+  500  ls /bin | head
+  501  ls /etc | head
+  502  ls /home
+  503  ls /var
+  504  ls /usr
+  505  ls /tmp
+  506  ls /dev
+  507  ls /proc
+  508  ls /boot
+  509  ls /root
+  510  sudo ls /root
+  511  ls /opt
+  512  ls -a | wc -l
+  513  ls -a
+  514  ls -A | wc -l
+  515  ls -la
+  516  find ~ -maxdepth 1 -type f | wc -l
+  517  find ~ -maxdepth 1 -type d | wc -l
+  518  find ~ -maxdepth 1 | wc -l
+  519  tree head
+  520  tree -L 2
+  521  cd comics-sg/week01/assignment-01/
+  522  ls
+  523  nano answer.md 
+  524  cd
+  525  cd comics-sg/week01/assignment-01/
+  526  cd
+  527  ls
+  528  cd cluster-project/
+  529  ls -l scripts/run.sh
+  530  echo '#!/bin/bash' > scripts/run.sh
+  531  echo 'echo "Job started on $(hostname) at $(date)"' >> scripts/run.sh
+  532  ./scripts/run.sh
+  533  chmod 700 scripts/run.sh
+  534  chmod u=rwx,go= scripts/run.sh
+  535* ./scripts/run.sh
+  536  ls -l scripts/run.sh
+  537  mkdir secret
+  538  chmod u-x secret
+  539  cd secret/
+  540  ls secret/
+  541  cd -
+  542  cd comics-sg/week01/assignment-01/
+  543  cd -
+  544  cd cluster-project/
+  545  history
+  546  history > ~/comics-sg/week01/assignment-01/command_log.txt

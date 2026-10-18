@@ -1,0 +1,14 @@
+.
+├── README.md
+├── data
+│   ├── processed
+│   │   └── sample_01_clean.csv
+│   └── raw
+│       ├── sample_01.csv
+│       └── sample_02.csv
+├── results
+│   └── sample_03.csv
+└── scripts
+    └── run.sh
+
+5 directories, 6 files
