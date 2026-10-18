@@ -331,5 +331,23 @@ history > ~/command_log.txt
 
 ## Task 5 — Self-Reflection (Lesson 01)
 
-Setelah mengerjakan seluruh assignment 1, saya menjadi lebih memahami tentang command pada linux walaupun masih agak lupa lupa untuk syntaks dan cara penggunaannya. Akan tetapi ini menjadi titik awal yang baik untuk memahami lebih dalam terkait command yang akan sering digunakan pada computer clustering nantinya. saya masih memiliki semangat untuk mempelajari hal ini lebih lanjut lagi
+### 1. Apa konsep utama yang dipelajari?
+
+Setelah mengerjakan seluruh assignment ini, saya memahami bahwa Linux terdiri dari kernel yang kemudian dilengkapi shell dan tool GNU hingga membentuk sebuah distro. Konsep utama yang paling terasa adalah bahwa semua yang ada di Linux tersusun sebagai satu pohon filesystem yang berakar di `/`, sehingga setiap file selalu punya satu lokasi pasti yang bisa ditunjuk dengan path. Saya juga belajar bahwa sebuah command memiliki anatomi `command [options] [arguments]` dan bahwa sebagian command seperti `cd` adalah shell builtin, bukan program di disk. Selain itu, saya memahami bahwa permission `rwx` pada file dan direktori memiliki arti yang berbeda, sehingga cara mengubahnya perlu dipikirkan sesuai jenis objeknya. Konsep-konsep ini menjadi dasar sebelum masuk ke computer cluster, di mana hampir seluruh interaksi dilakukan lewat terminal.
+
+### 2. Apa kesulitan yang ditemukan?
+
+Kesulitan terbesar saya adalah mengingat sintaks tiap command, karena banyaknya option membuat saya masih sering lupa dan harus membuka `man` atau `--help` kembali. Saya juga sempat bingung saat menghitung jumlah entri di home directory, karena `ls -A` dan `find` memberi angka yang tidak persis sama akibat perbedaan cara menghitung symlink dan direktori itu sendiri. Kesulitan lain muncul pada Task 4, ketika saya harus memahami mengapa script gagal dijalankan padahal isinya sudah benar, yang ternyata murni karena belum ada bit `x`. Kejadian itu mengajarkan saya membaca pesan error seperti `Permission denied` sebagai petunjuk utama. Meski demikian, saya melihat kesulitan ini sebagai hal wajar di tahap awal dan tetap bersemangat untuk memperbaikinya.
+
+### 3. Apa perbedaan absolute path dan relative path, dan kapan sebaiknya masing-masing digunakan dalam script?
+
+Absolute path selalu dimulai dari `/` sehingga menunjuk lokasi yang sama dari mana pun perintah dijalankan, sedangkan relative path dihitung dari direktori kerja saat ini seperti `data/raw/sample_01.csv` atau `../data/hello.txt`. Dalam script, saya cenderung memakai absolute path untuk hal yang harus selalu pasti, misalnya konfigurasi atau lokasi file input yang tidak boleh berubah. Relative path lebih nyaman untuk pekerjaan sehari-hari di dalam satu struktur project karena lebih pendek dan mudah dibaca. Praktik yang saya pelajari adalah menentukan direktori kerja secara eksplisit di awal script, lalu konsisten memakai relative path terhadap direktori tersebut. Dengan begitu script tidak mudah rusak walaupun dijalankan dari lokasi yang berbeda.
+
+### 4. Mengapa permission file penting pada sistem multi-user seperti cluster?
+
+Linux bersifat multi-user, sehingga satu mesin bisa dipakai banyak orang sekaligus dan permission menjadi pembatas pertama agar file saya tidak tersentuh pengguna lain. Pada kasus Task 4, saya melihat langsung bahwa kombinasi `700` membuat hanya owner yang bisa read, write, dan execute, sementara group dan others tidak punya akses apa pun. Ini penting bukan hanya untuk kerahasiaan data, tetapi juga untuk keamanan eksekusi, karena script tanpa bit `x` memang tidak bisa dijalankan dan script yang terlalu terbuka bisa dieksekusi pihak lain. Di cluster, kesalahan permission bisa berakibat data penelitian terbaca orang lain atau job gagal jalan. Karena itu saya belajar membiasakan diri memilih permission sekecil mungkin sesuai kebutuhan.
+
+### 5. Error apa yang paling sering Anda temui minggu ini, dan bagaimana Anda menyelesaikannya?
+
+Error yang paling sering saya temui adalah `Permission denied`, baik saat menjalankan `./scripts/run.sh` yang belum punya bit `x`, maupun saat menjalankan `cd secret` setelah bit `x` owner dihapus. Solusinya saya pelajari bertahap: pertama memeriksa kondisi permission dengan `ls -l`, lalu memutuskan bit mana yang perlu ditambahkan. Untuk script saya memakai `chmod 700` (atau `chmod u=rwx,go=`), sedangkan pada direktori saya memakai `chmod u+x` untuk mengembalikan akses seperti semula. Saya juga sempat menemui error saat membuat direktori bersarang, yang selesai dengan memakai `mkdir -p`. Kebiasaan yang saya ambil dari minggu ini adalah selalu membaca pesan error lebih dulu sebelum menebak penyebabnya.
 

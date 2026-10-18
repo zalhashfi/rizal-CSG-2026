@@ -5,7 +5,7 @@ Repository personal untuk **Comics Study Group (CSG) 2026**. Isinya adalah hasil
 Seluruh pengerjaan dilakukan **lewat terminal** (bukan file explorer) pada environment **WSL2** dengan distro **Ubuntu 22.04.5 LTS**.
 
 > [!IMPORTANT]
-> **Status repository: public dan sudah tersinkron.** Commit `05dcf7a` ("Add Assignment 01 Linux Fundamental deliverables") sudah ada di branch `main` dan sudah di-push ke GitHub. Pekerjaan yang masih tersisa hanya **Self-Reflection Task 5**; rincian ketidaksesuaian lain ada di [Catatan Kondisi Saat Ini](#catatan-kondisi-saat-ini).
+> **Status repository: public, sudah di-push, deliverable Assignment 01 lengkap.** Seluruh task (Task 1–5, termasuk Self-Reflection dengan 5 butir jawaban) sudah terisi. Sisa pekerjaan bersifat opsional/kerapian saja dan dirinci di [Catatan Kondisi Saat Ini](#catatan-kondisi-saat-ini).
 
 ## Struktur Repository
 
@@ -14,7 +14,7 @@ rizal-CSG-2026/
 ├── README.md
 └── week01/
     ├── assignment-01/
-    │   ├── answers.md        # jawaban Task 1–5 (Self-Reflection masih kosong)
+    │   ├── answers.md        # jawaban Task 1–5 + Self-Reflection (5 butir)
     │   ├── sysinfo.txt       # output Task 1 (identitas environment)
     │   ├── structure.txt     # output Task 3 (struktur direktori project)
     │   └── command_log.txt   # riwayat command Task 5 (output `history`)
@@ -34,21 +34,20 @@ Assignment 01 disimpan di `week01/assignment-01/` (bukan langsung `assignment-01
 | Task 1 | Environment Setup & System Information | ✅ selesai |
 | Task 2 | Filesystem Exploration | ✅ selesai |
 | Task 3 | Membangun Struktur Direktori Project | ✅ selesai |
-| Task 4 | File Permission Challenge | ⚠️ jawaban ada, tetapi penjelasan no. 6 perlu dikoreksi (`ls secret` sebenarnya juga `Permission denied` saat bit `x` owner dihapus) |
+| Task 4 | File Permission Challenge | ✅ selesai (termasuk `secret/` yang dikembalikan ke `755`) |
 | Task 5 | Command Log | ✅ selesai |
-| Task 5 | Self-Reflection (Lesson 01) | ⬜ belum diisi (pertanyaan tersedia di Lesson 01) |
-| — | Commit & push ke GitHub | ✅ selesai (`05dcf7a` di `origin/main`) |
+| Task 5 | Self-Reflection (Lesson 01) | ✅ selesai (5 pertanyaan, masing-masing 3–5 kalimat) |
+| — | Commit & push ke GitHub | ✅ selesai (`05dcf7a` add deliverables, `4a40367` update README) |
 | Bonus | OverTheWire Bandit Level 0 → 5 | ⬜ belum dikerjakan |
 
 ## Catatan Kondisi Saat Ini
 
-Hal-hal yang masih belum sesuai dengan instruksi pengumpulan Assignment 01:
+Seluruh deliverable wajib sudah terpenuhi. Yang tersisa hanya hal kecil/opsional:
 
-1. **Self-Reflection belum diisi.** Bagian Task 5 pada `answers.md` masih berupa placeholder. Pertanyaan (5 butir) sudah tersedia di bagian *Self-Reflection* Lesson 01.
-2. **Penjelasan Task 4 no. 6 perlu dikoreksi.** Saat bit `x` owner dihapus (`chmod u-x secret`), `ls secret` **juga gagal** dengan `Permission denied`. Yang hanya butuh bit `r` tanpa `x` adalah `ls -l secret` atau `ls -d secret`, bukan `ls secret`.
-3. **Path di `answers.md`.** Beberapa bagian masih menyebut `~/comics-sg/week01/...`, padahal repository kini berada di `~/comics/rizal-CSG-2026/week01/...`.
-4. **`week01/scripts/run.sh`** (permission `744`) adalah versi latihan Guided Practice (`echo "Script berjalan dari $(pwd)"`), bukan script Task 4 yang diuji permission-nya. Script Task 4 (`chmod 700`, isi `Job started on ...`) berada di `~/cluster-project/scripts/run.sh`.
-5. **File sisa latihan** (`week01/data/hello.txt`, `week01/results/`) bukan bagian deliverable Assignment 01.
+1. **Path historis di `answers.md`.** Bagian Task 2 no. 5 dan Task 3 langkah 6 masih mencatat `~/comics-sg/week01/...`, yaitu lokasi repo saat assignment dikerjakan. Repo kini berada di `~/comics/rizal-CSG-2026/week01/...`; ini sengaja dibiarkan sebagai jejak kondisi asli saat pengerjaan.
+2. **`week01/scripts/run.sh`** (permission `744`) adalah script latihan Guided Practice Lesson 01 (`echo "Script berjalan dari $(pwd)"`). Script yang diuji pada Task 4 (`chmod 700`, isi `Job started on ...`) berada di `~/cluster-project/scripts/run.sh` sesuai instruksi task yang memang menyuruh mengerjakan di direktori tersebut.
+3. **File sisa latihan** (`week01/data/hello.txt`, `week01/results/`) bukan bagian deliverable Assignment 01, tetapi ikut ter-commit.
+4. **Bonus Bandit Level 0 → 5** belum dikerjakan (opsional, +10%).
 
 ## Project Direktori Task 3
 
@@ -102,4 +101,4 @@ Ringkasan dari `week01/assignment-01/sysinfo.txt`:
 ## Remote
 
 - GitHub: <https://github.com/zalhashfi/rizal-CSG-2026> (public)
-- Branch: `main`, commit terakhir `05dcf7a`
+- Branch: `main` — `05dcf7a` (deliverables), `4a40367` (update README)
