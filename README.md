@@ -5,7 +5,7 @@ Repository personal untuk **Comics Study Group (CSG) 2026**. Isinya adalah hasil
 Seluruh pengerjaan dilakukan **lewat terminal** (bukan file explorer) pada environment **WSL2** dengan distro **Ubuntu 22.04.5 LTS**.
 
 > [!IMPORTANT]
-> **Status repository: work-in-progress.** Belum ada commit sama sekali pada branch `main` (file masih *staged*) dan repository ini **belum di-push** ke GitHub. Bagian yang masih kurang dijelaskan di bawah.
+> **Status repository: public dan sudah tersinkron.** Commit `05dcf7a` ("Add Assignment 01 Linux Fundamental deliverables") sudah ada di branch `main` dan sudah di-push ke GitHub. Pekerjaan yang masih tersisa hanya **Self-Reflection Task 5**; rincian ketidaksesuaian lain ada di [Catatan Kondisi Saat Ini](#catatan-kondisi-saat-ini).
 
 ## Struktur Repository
 
@@ -17,7 +17,7 @@ rizal-CSG-2026/
     │   ├── answers.md        # jawaban Task 1–5 (Self-Reflection masih kosong)
     │   ├── sysinfo.txt       # output Task 1 (identitas environment)
     │   ├── structure.txt     # output Task 3 (struktur direktori project)
-    │   └── command_log.txt   # ⚠ belum berisi output `history` (lihat catatan)
+    │   └── command_log.txt   # riwayat command Task 5 (output `history`)
     ├── data/
     │   └── hello.txt         # sisa latihan Guided Practice Lesson 01
     ├── scripts/
@@ -35,21 +35,20 @@ Assignment 01 disimpan di `week01/assignment-01/` (bukan langsung `assignment-01
 | Task 2 | Filesystem Exploration | ✅ selesai |
 | Task 3 | Membangun Struktur Direktori Project | ✅ selesai |
 | Task 4 | File Permission Challenge | ⚠️ jawaban ada, tetapi penjelasan no. 6 perlu dikoreksi (`ls secret` sebenarnya juga `Permission denied` saat bit `x` owner dihapus) |
-| Task 5 | Command Log | ⚠️ `command_log.txt` belum berisi output `history` |
+| Task 5 | Command Log | ✅ selesai |
 | Task 5 | Self-Reflection (Lesson 01) | ⬜ belum diisi (pertanyaan tersedia di Lesson 01) |
-| — | Push ke GitHub | ⬜ belum dilakukan, belum ada commit |
+| — | Commit & push ke GitHub | ✅ selesai (`05dcf7a` di `origin/main`) |
 | Bonus | OverTheWire Bandit Level 0 → 5 | ⬜ belum dikerjakan |
 
 ## Catatan Kondisi Saat Ini
 
-Hal-hal yang belum sesuai dengan instruksi pengumpulan Assignment 01:
+Hal-hal yang masih belum sesuai dengan instruksi pengumpulan Assignment 01:
 
-1. **Belum ada commit/push.** Repository lokal masih kosong (tidak ada commit) dan remote GitHub belum berisi file.
-2. **`command_log.txt`** berisi ringkasan status Git, bukan riwayat command. Perlu dibuat ulang dengan `history > ~/command_log.txt`.
-3. **Self-Reflection** pada `answers.md` masih berupa placeholder.
-4. **Path di `answers.md`** masih menyebut `~/comics-sg/week01/...`, padahal repository kini berada di `~/comics/rizal-CSG-2026/week01/...`.
-5. **`week01/scripts/run.sh`** adalah versi latihan Guided Practice (`echo "Script berjalan dari $(pwd)"`), bukan script Task 4 yang diuji permission-nya. Script Task 4 (`chmod 700`, isi `Job started on ...`) berada di `~/cluster-project/scripts/run.sh`.
-6. **File sisa latihan** (`week01/data/hello.txt`, `week01/results/`) bukan bagian deliverable Assignment 01.
+1. **Self-Reflection belum diisi.** Bagian Task 5 pada `answers.md` masih berupa placeholder. Pertanyaan (5 butir) sudah tersedia di bagian *Self-Reflection* Lesson 01.
+2. **Penjelasan Task 4 no. 6 perlu dikoreksi.** Saat bit `x` owner dihapus (`chmod u-x secret`), `ls secret` **juga gagal** dengan `Permission denied`. Yang hanya butuh bit `r` tanpa `x` adalah `ls -l secret` atau `ls -d secret`, bukan `ls secret`.
+3. **Path di `answers.md`.** Beberapa bagian masih menyebut `~/comics-sg/week01/...`, padahal repository kini berada di `~/comics/rizal-CSG-2026/week01/...`.
+4. **`week01/scripts/run.sh`** (permission `744`) adalah versi latihan Guided Practice (`echo "Script berjalan dari $(pwd)"`), bukan script Task 4 yang diuji permission-nya. Script Task 4 (`chmod 700`, isi `Job started on ...`) berada di `~/cluster-project/scripts/run.sh`.
+5. **File sisa latihan** (`week01/data/hello.txt`, `week01/results/`) bukan bagian deliverable Assignment 01.
 
 ## Project Direktori Task 3
 
@@ -66,14 +65,15 @@ cluster-project/
 │       └── sample_01_clean.csv
 ├── results/
 │   └── sample_03.csv
-└── scripts/
-    └── run.sh          # permission 700
+├── scripts/
+│   └── run.sh          # permission 700
+└── secret/             # uji permission Task 4 no. 6
 ```
 
 ## Cara Menjalankan / Reproduksi
 
 ```bash
-# 1. Clone repository (perlu dilakukan setelah repo di-push)
+# 1. Clone repository
 git clone https://github.com/zalhashfi/rizal-CSG-2026.git
 cd rizal-CSG-2026
 
@@ -101,4 +101,5 @@ Ringkasan dari `week01/assignment-01/sysinfo.txt`:
 
 ## Remote
 
-- GitHub: <https://github.com/zalhashfi/rizal-CSG-2026.git> (belum berisi commit)
+- GitHub: <https://github.com/zalhashfi/rizal-CSG-2026> (public)
+- Branch: `main`, commit terakhir `05dcf7a`
