@@ -40,6 +40,8 @@ rizal-CSG-2026/
         ├── sweep_tree.txt      # output Task 5
         ├── errors_only.log     # hasil Task 2 no. 9
         ├── cluster_jobs.log    # dataset (salinan)
+        ├── shellcheck_before.txt # bonus 1 — output shellcheck sebelum
+        ├── shellcheck_after.txt  # bonus 1 — output shellcheck sesudah
         └── sweep_test/         # hasil uji organize.sh (T100/T200/T300)
 ```
 
@@ -69,7 +71,7 @@ Assignment disimpan sebagai `weekNN/assignment-NN/` (bukan langsung `assignment-
 | Task 4 | Bash Script `sysreport.sh` | ✅ selesai |
 | Task 5 | Bash Script `organize.sh` | ✅ selesai |
 | Self-Reflection | Lesson 02 | ✅ selesai (5 pertanyaan) |
-| Bonus | shellcheck, `-h/--help`, temperature custom | ⬜ belum dikerjakan |
+| Bonus | shellcheck, `-h/--help`, temperature custom | ✅ selesai |
 
 Semua exit code dan validasi Task 4–5 sudah diuji, dan kedua script lulus `shellcheck` tanpa warning.
 
@@ -78,7 +80,7 @@ Semua exit code dan validasi Task 4–5 sudah diuji, dan kedua script lulus `she
 | Script | Fungsi | Exit code |
 | ------ | ------ | --------- |
 | [`sysreport.sh`](week02/assignment-02/sysreport.sh) | Menulis laporan kondisi sistem (user, hostname, distro, kernel, CPU, memory, disk, 5 process teratas memory) | `0` sukses · `1` file output sudah ada |
-| [`organize.sh`](week02/assignment-02/organize.sh) | Membuat struktur `T100/T200/T300/run_NN` + `params.txt` untuk simulasi parameter sweep | `0` sukses · `1` argumen kurang · `2` jumlah_run tidak valid |
+| [`organize.sh`](week02/assignment-02/organize.sh) | Membuat struktur `T<temperature>/run_NN` + `params.txt` untuk simulasi parameter sweep | `0` sukses · `1` argumen kurang · `2` jumlah_run tidak valid · `3` temperature tidak valid |
 
 ```bash
 cd week02/assignment-02
@@ -88,10 +90,13 @@ cd week02/assignment-02
 ./sysreport.sh my_report.txt    # nama custom; jalankan dua kali -> exit 1
 
 # Task 5 — simulasi parameter sweep
-./organize.sh sweep_test 3
+./organize.sh sweep_test 3                  # T100 T200 T300 (default)
+./organize.sh exp 2 50 150 250              # temperature custom
+./organize.sh --help                        # bantuan
 cat sweep_test/T200/run_02/params.txt
-./organize.sh                   # exit 1
-./organize.sh exp abc           # exit 2
+./organize.sh                               # exit 1
+./organize.sh exp abc                       # exit 2
+./organize.sh exp 2 50 abc                  # exit 3
 ```
 
 ## Bonus — OverTheWire Bandit Level 0 → 5

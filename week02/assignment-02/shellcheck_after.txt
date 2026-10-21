@@ -1,0 +1,9 @@
+$ shellcheck -x organize.sh
+(exit=0)
+
+$ shellcheck -x sysreport.sh
+(exit=0)
+
+$ shellcheck --version
+ShellCheck - shell script analysis tool
+version: 0.8.0

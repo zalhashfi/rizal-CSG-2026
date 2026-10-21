@@ -1,0 +1,5 @@
+$ shellcheck organize.sh
+(exit=0)
+
+$ shellcheck sysreport.sh
+(exit=0)

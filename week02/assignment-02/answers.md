@@ -383,11 +383,13 @@ File: [`organize.sh`](organize.sh)
 | Spesifikasi | Implementasi |
 | ----------- | ------------ |
 | Usage `<nama_eksperimen> <jumlah_run>` | `EXP_NAME="$1"`, `NUM_RUN="$2"` |
-| Argumen < 2 → usage ke stderr, exit 1 | `if [[ $# -lt 2 ]]` dengan `>&2` |
+| Argumen < 2 → usage ke stderr, exit 1 | `if [[ $# -lt 2 ]]` dengan `usage >&2` |
 | `jumlah_run` bukan integer positif → exit 2 | `[[ ! "$NUM_RUN" =~ ^[0-9]+$ ]] \|\| (( NUM_RUN < 1 ))` |
 | Direktori `T{100,200,300}/run_NN/` | loop `TEMPERATURES` + `printf '%02d'` |
-| `params.txt` tiap run | here-block `>` ke `params.txt` |
+| `params.txt` tiap run | blok `{ ... } > params.txt` |
 | Ringkasan jumlah direktori & file | `find ... \| wc -l` |
+| **Bonus** `-h` / `--help` | fungsi `usage()`, `case "${1:-}" in -h\|--help)` → exit 0 |
+| **Bonus** temperature custom | `./organize.sh exp 3 50 150 250`; `shift 2` lalu `TEMPERATURES=("$@")` |
 
 ### Pengujian
 
@@ -406,7 +408,7 @@ Hasil:
 Eksperimen : sweep_test
 Temperature: 100 200 300
 Jumlah run : 3
-Direktori  : 13 (termasuk direktori induk)
+Direktori  : 13 (termasuk direktori eksperimen)
 params.txt : 9
 exit=0
 
@@ -417,7 +419,8 @@ run=02
 created=2026-10-21 13:42:25
 
 === 4) tanpa argumen ===
-Usage: ./organize.sh <nama_eksperimen> <jumlah_run>
+Penggunaan: organize.sh <nama_eksperimen> <jumlah_run> [temperature ...]
+...
 exit=1
 
 === 5) jumlah_run bukan angka ===
@@ -427,6 +430,21 @@ exit=2
 === 6) jumlah_run = 0 ===
 Error: <jumlah_run> harus bilangan bulat positif, bukan '0'.
 exit=2
+
+=== 7) temperature custom ===
+Eksperimen : exp
+Temperature: 50 150 250
+Jumlah run : 2
+params.txt : 6
+exit=0
+
+=== 8) temperature bukan angka ===
+Error: temperature 'abc' bukan bilangan bulat non-negatif.
+exit=3
+
+=== 9) --help ===
+Penggunaan: organize.sh <nama_eksperimen> <jumlah_run> [temperature ...]
+exit=0
 ```
 
 Struktur akhir tersimpan di [`sweep_tree.txt`](sweep_tree.txt):
@@ -458,18 +476,25 @@ sweep_test
 
 ---
 
-## Bonus Tambahan
+## Bonus
 
-### Shellcheck
+Semua bonus Assignment 02 dikerjakan.
+
+### Bonus 1 — `shellcheck` pada kedua script
 
 ```bash
-shellcheck sysreport.sh && echo CLEAN
-shellcheck organize.sh && echo CLEAN
+shellcheck organize.sh
+shellcheck sysreport.sh
 ```
 
-Hasil akhir: **kedua script CLEAN (tanpa warning)**.
+Output sebelum dan sesudah disimpan lengkap di [`shellcheck_before.txt`](shellcheck_before.txt) dan [`shellcheck_after.txt`](shellcheck_after.txt). ShellCheck versi `0.8.0`.
 
-Satu temuan sebelumnya pada `sysreport.sh`:
+| Script | Sebelum | Sesudah |
+| ------ | ------- | ------- |
+| `organize.sh` | exit 0 (clean) | exit 0 (clean) |
+| `sysreport.sh` | exit 0 (clean) | exit 0 (clean) |
+
+Satu-satunya temuan muncul pada versi awal `sysreport.sh`, yang sudah diperbaiki sebelum bonus ini dikerjakan:
 
 ```text
 In sysreport.sh line 33:
@@ -477,11 +502,91 @@ In sysreport.sh line 33:
                            ^-------------^ SC1091 (info): Not following: /etc/os-release was not specified as input
 ```
 
-Perbaikan: tidak lagi memakai `.` (source) pada file eksternal, melainkan membaca `PRETTY_NAME` langsung:
+**Perbaikan:** file eksternal tidak lagi di-`source`, melainkan dibaca langsung:
 
 ```bash
 grep -E '^PRETTY_NAME=' /etc/os-release | cut -d= -f2- | tr -d '"'
 ```
+
+Alasan memilih perbaikan ini dibanding `shellcheck -x`: `-x` hanya menekan peringatan dengan cara membaca file yang di-`source`, padahal masalah sebenarnya adalah kita tidak butuh seluruh variabel — cukup satu baris. Membaca langsung lebih sederhana dan tidak bergantung pada struktur file.
+
+### Bonus 2 — Opsi `-h` / `--help` pada `organize.sh`
+
+```bash
+./organize.sh --help
+```
+
+```text
+Penggunaan: organize.sh <nama_eksperimen> <jumlah_run> [temperature ...]
+
+Menyiapkan struktur direktori untuk simulasi parameter sweep.
+
+Argument:
+  <nama_eksperimen>   nama direktori eksperimen (dibuat bila belum ada)
+  <jumlah_run>        bilangan bulat positif, jumlah run per temperature
+  [temperature ...]   daftar temperature; default: 100 200 300
+
+Opsi:
+  -h, --help          tampilkan bantuan ini lalu keluar
+
+Contoh:
+  organize.sh sweep_test 3
+  organize.sh exp 2 50 150 250
+
+Exit code:
+  0 berhasil · 1 argument kurang · 2 jumlah_run tidak valid · 3 temperature tidak valid
+```
+
+Bantuan ditulis sekali di fungsi `usage()` agar teks usage dan help tidak pernah berbeda. `--help` dikeluarkan dengan **exit 0** karena itu permintaan yang sah, sedangkan argumen kurang tetap **exit 1**.
+
+### Bonus 3 — Temperature sebagai argument tambahan
+
+```bash
+./organize.sh exp 3 50 150 250
+```
+
+```text
+Eksperimen : exp
+Temperature: 50 150 250
+Jumlah run : 3
+Direktori  : 13 (termasuk direktori eksperimen)
+params.txt : 9
+```
+
+Implementasinya: setelah `EXP_NAME="$1"` dan `NUM_RUN="$2"`, gunakan `shift 2` sehingga `"$@"` hanya berisi temperature tambahan. Jika tidak ada, dipakai default:
+
+```bash
+if [[ $# -gt 0 ]]; then
+    TEMPERATURES=("$@")
+else
+    TEMPERATURES=("${DEFAULT_TEMPERATURES[@]}")
+fi
+```
+
+Setiap temperature divalidasi harus bilangan bulat non-negatif; jika tidak, keluar dengan **exit 3**.
+
+### Seluruh exit code akhir
+
+| Kode | Arti | Pemicu |
+| ---- | ---- | ------ |
+| 0 | berhasil | `./organize.sh sweep_test 3`, `./organize.sh --help` |
+| 1 | argumen kurang | `./organize.sh` |
+| 2 | `jumlah_run` tidak valid | `./organize.sh exp abc`, `./organize.sh exp 0` |
+| 3 | temperature tidak valid | `./organize.sh exp 2 50 abc` |
+
+### Ringkasan pengujian bonus
+
+| No | Perintah | Hasil |
+| -- | -------- | ----- |
+| 1 | `./organize.sh sweep_test 3` | exit 0, 12 direktori, 9 `params.txt`, temperature `100 200 300` |
+| 2 | `./organize.sh exp 2 50 150 250` | exit 0, 9 direktori, 6 `params.txt`, temperature `50 150 250` |
+| 3 | `cat exp/T150/run_02/params.txt` | `temperature=150`, `run=02` |
+| 4 | `./organize.sh --help` | exit 0, tampil bantuan |
+| 5 | `./organize.sh -h` | exit 0, tampil bantuan |
+| 6 | `./organize.sh` | exit 1 |
+| 7 | `./organize.sh exp abc` | exit 2 |
+| 8 | `./organize.sh exp 2 50 abc` | exit 3 |
+| 9 | `shellcheck organize.sh` | clean |
 
 ---
 
@@ -520,3 +625,5 @@ Saya ingin mendiskusikan **praktik terbaik penempatan `~/bin` di `PATH`** saat b
 | [`sweep_tree.txt`](sweep_tree.txt) | output struktur Task 5 |
 | [`cluster_jobs.log`](cluster_jobs.log) | dataset (salinan) |
 | [`errors_only.log`](errors_only.log) | hasil Task 2 no. 9 |
+| [`shellcheck_before.txt`](shellcheck_before.txt) | output shellcheck (bonus 1, sebelum) |
+| [`shellcheck_after.txt`](shellcheck_after.txt) | output shellcheck (bonus 1, sesudah) |
