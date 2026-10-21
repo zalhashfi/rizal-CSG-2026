@@ -1,0 +1,4 @@
+experiment=sweep_test
+temperature=200
+run=03
+created=2026-10-21 13:43:25

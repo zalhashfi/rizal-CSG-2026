@@ -1,0 +1,24 @@
+sweep_test
+|-- T100
+|   |-- run_01
+|   |   `-- params.txt
+|   |-- run_02
+|   |   `-- params.txt
+|   `-- run_03
+|       `-- params.txt
+|-- T200
+|   |-- run_01
+|   |   `-- params.txt
+|   |-- run_02
+|   |   `-- params.txt
+|   `-- run_03
+|       `-- params.txt
+`-- T300
+    |-- run_01
+    |   `-- params.txt
+    |-- run_02
+    |   `-- params.txt
+    `-- run_03
+        `-- params.txt
+
+12 directories, 9 files

@@ -1,0 +1,13 @@
+
+# ===== CSG 2026 — Assignment 02 (Task 3) =====
+# Alias berguna sehari-hari
+alias ll='ls -lah'
+alias ..='cd ..'
+alias cls='clear'
+
+# Lokasi repository Comics Study Group
+export COMICS_HOME="$HOME/comics"
+
+# Tambahkan ~/bin ke PATH (di depan agar prioritas lebih tinggi)
+export PATH="$HOME/bin:$PATH"
+# ===== akhir Assignment 02 =====
